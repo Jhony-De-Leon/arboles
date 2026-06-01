@@ -96,4 +96,21 @@ public class OperacionesBST {
         
         return nodo.dato;
     }
+
+    // Problema 5:
+    public void invertir() {
+        invertirAux(arbol.getRaiz());
+    }
+
+    private void invertirAux(Nodo nodo) {
+        if (nodo == null) {
+            return;
+        }
+        Nodo temp = nodo.izquierdo;
+        nodo.izquierdo = nodo.derecho;
+        nodo.derecho = temp;
+        
+        invertirAux(nodo.izquierdo);
+        invertirAux(nodo.derecho);
+    }
 }

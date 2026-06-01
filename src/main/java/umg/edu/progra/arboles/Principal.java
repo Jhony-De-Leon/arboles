@@ -157,7 +157,7 @@ public class Principal {
         Nodo nodoRoto = arbolPrincipal.getRaiz().derecho.izquierdo;
         nodoRoto.izquierdo = new Nodo(3);
         System.out.println("Arbol roto (se agrego nodo 3 bajo nodo 60, viola BST):");
-        System.out.println("esBSTValido() = " + ops3.esBSTValido()); // debe ser false
+        System.out.println("esBSTValido() = " + ops3.esBSTValido());
 
         // Problema 4:
         System.out.println("\n===== Problema 4: ancestroComunMasBajo =====");
@@ -184,5 +184,32 @@ public class Principal {
         } catch (IllegalArgumentException e) {
             System.out.println("lca(10, 99) -> excepcion: " + e.getMessage());
         }
+
+        // Problema 5:
+        System.out.println("\n===== Problema 5: invertir =====");
+
+        ArbolBinarioBusqueda arbol5 = new ArbolBinarioBusqueda();
+        arbol5.insertar(50);
+        arbol5.insertar(30);
+        arbol5.insertar(70);
+        arbol5.insertar(20);
+        arbol5.insertar(40);
+        arbol5.insertar(60);
+        arbol5.insertar(80);
+        arbol5.insertar(10);
+
+        OperacionesBST ops5 = new OperacionesBST(arbol5);
+        
+        System.out.println("Antes de invertir:");
+        arbol5.imprimirArbol();
+        System.out.print("InOrden antes (ascendente): ");
+        arbol5.inOrden();
+        
+        ops5.invertir();
+        
+        System.out.println("Despues de invertir:");
+        arbol5.imprimirArbol();
+        System.out.print("InOrden despues (descendente): ");
+        arbol5.inOrden();
     }
 }
