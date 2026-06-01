@@ -157,6 +157,32 @@ public class Principal {
         Nodo nodoRoto = arbolPrincipal.getRaiz().derecho.izquierdo;
         nodoRoto.izquierdo = new Nodo(3);
         System.out.println("Arbol roto (se agrego nodo 3 bajo nodo 60, viola BST):");
-        System.out.println("esBSTValido() = " + ops3.esBSTValido()); 
+        System.out.println("esBSTValido() = " + ops3.esBSTValido()); // debe ser false
+
+        // Problema 4:
+        System.out.println("\n===== Problema 4: ancestroComunMasBajo =====");
+
+        ArbolBinarioBusqueda arbol4 = new ArbolBinarioBusqueda();
+        arbol4.insertar(50);
+        arbol4.insertar(30);
+        arbol4.insertar(70);
+        arbol4.insertar(20);
+        arbol4.insertar(40);
+        arbol4.insertar(60);
+        arbol4.insertar(80);
+        arbol4.insertar(10);
+        arbol4.imprimirArbol();
+
+        OperacionesBST ops4 = new OperacionesBST(arbol4);
+
+        System.out.println("lca(10, 40) = " + ops4.ancestroComunMasBajo(10, 40)); 
+        System.out.println("lca(10, 80) = " + ops4.ancestroComunMasBajo(10, 80)); 
+        System.out.println("lca(60, 80) = " + ops4.ancestroComunMasBajo(60, 80)); 
+
+        try {
+            ops4.ancestroComunMasBajo(10, 99);
+        } catch (IllegalArgumentException e) {
+            System.out.println("lca(10, 99) -> excepcion: " + e.getMessage());
+        }
     }
 }

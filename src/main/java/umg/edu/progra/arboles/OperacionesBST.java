@@ -74,4 +74,26 @@ public class OperacionesBST {
 
         return izqValido && derValido;
     }
+
+    // Problema 4:
+    public int ancestroComunMasBajo(int a, int b) {
+        if (!arbol.contiene(a)) {
+            throw new IllegalArgumentException("El valor " + a + " no existe en el arbol");
+        }
+        if (!arbol.contiene(b)) {
+            throw new IllegalArgumentException("El valor " + b + " no existe en el arbol");
+        }
+        return lcaAux(arbol.getRaiz(), a, b);
+    }
+
+    private int lcaAux(Nodo nodo, int a, int b) {
+        if (a < nodo.dato && b < nodo.dato) {
+            return lcaAux(nodo.izquierdo, a, b);
+        }
+        if (a > nodo.dato && b > nodo.dato) {
+            return lcaAux(nodo.derecho, a, b);
+        }
+        
+        return nodo.dato;
+    }
 }
