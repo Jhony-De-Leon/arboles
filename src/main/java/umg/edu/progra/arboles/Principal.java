@@ -134,5 +134,28 @@ public class Principal {
         System.out.println("Arbol desbalanceado (1,2,3,4,5):");
         arbolDesbalanceado.imprimirArbol();
         System.out.println("esBalanceado() = " + opsDesbalanceado.esBalanceado());
+
+        // Problema 3: esBSTValido()
+        System.out.println("\n===== Problema 3: esBSTValido =====");
+
+        ArbolBinarioBusqueda arbol3 = new ArbolBinarioBusqueda();
+        arbol3.insertar(50);
+        arbol3.insertar(30);
+        arbol3.insertar(70);
+        arbol3.insertar(20);
+        arbol3.insertar(40);
+        arbol3.insertar(60);
+        arbol3.insertar(80);
+        arbol3.insertar(10);
+        OperacionesBST ops3 = new OperacionesBST(arbol3);
+        System.out.println("Arbol valido (insercion normal):");
+        System.out.println("esBSTValido() = " + ops3.esBSTValido());
+
+        // arbol roto: agrego nodo 3 como hijo izquierdo del nodo 60
+        // el nodo 60 esta en el subarbol derecho de 50, entonces 3 < 50 viola el BST
+        Nodo nodoRoto = arbol3.getRaiz().derecho.izquierdo; // nodo 60
+        nodoRoto.izquierdo = new Nodo(3);                   // 3 < 50, invalido
+        System.out.println("Arbol roto (nodo 3 bajo nodo 60, viola BST):");
+        System.out.println("esBSTValido() = " + ops3.esBSTValido());
     }
 }

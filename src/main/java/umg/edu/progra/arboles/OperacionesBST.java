@@ -56,4 +56,22 @@ public class OperacionesBST {
             return 1 + der;
         }
     }
+
+    // Problema 3:
+    public boolean esBSTValido() {
+        return esBSTValidoAux(arbol.getRaiz(), Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private boolean esBSTValidoAux(Nodo nodo, int minPermitido, int maxPermitido) {
+        if (nodo == null) {
+            return true;
+        }
+        if (nodo.dato <= minPermitido || nodo.dato >= maxPermitido) {
+            return false;
+        }
+        boolean izqValido = esBSTValidoAux(nodo.izquierdo, minPermitido, nodo.dato);
+        boolean derValido = esBSTValidoAux(nodo.derecho, nodo.dato, maxPermitido);
+
+        return izqValido && derValido;
+    }
 }
