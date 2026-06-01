@@ -211,5 +211,33 @@ public class Principal {
         arbol5.imprimirArbol();
         System.out.print("InOrden despues (descendente): ");
         arbol5.inOrden();
+
+        // Extra 1:
+        System.out.println("\n===== Extra 1: kEsimoMenor =====");
+        
+        ArbolBinarioBusqueda arbolE1 = new ArbolBinarioBusqueda();
+        arbolE1.insertar(50);
+        arbolE1.insertar(30);
+        arbolE1.insertar(70);
+        arbolE1.insertar(20);
+        arbolE1.insertar(40);
+        arbolE1.insertar(60);
+        arbolE1.insertar(80);
+        arbolE1.insertar(10);
+
+        OperacionesBST opsE1 = new OperacionesBST(arbolE1);
+        System.out.print("InOrden del arbol: ");
+        arbolE1.inOrden();
+        
+        System.out.println("kEsimoMenor(1) = " + opsE1.kEsimoMenor(1)); 
+        System.out.println("kEsimoMenor(3) = " + opsE1.kEsimoMenor(3)); 
+        System.out.println("kEsimoMenor(5) = " + opsE1.kEsimoMenor(5)); 
+        System.out.println("kEsimoMenor(8) = " + opsE1.kEsimoMenor(8)); 
+        
+        try {
+            opsE1.kEsimoMenor(9);
+        } catch (IllegalArgumentException e) {
+            System.out.println("kEsimoMenor(9) -> excepcion: " + e.getMessage());
+        }
     }
 }

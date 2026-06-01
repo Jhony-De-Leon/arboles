@@ -113,4 +113,30 @@ public class OperacionesBST {
         invertirAux(nodo.izquierdo);
         invertirAux(nodo.derecho);
     }
+
+    // Extra 1:
+    public int kEsimoMenor(int k) {
+        if (k <= 0) {
+            throw new IllegalArgumentException("k debe ser mayor que 0");
+        }
+        int total = contarNodos();
+
+        if (k > total) {
+            throw new IllegalArgumentException("k = " + k + " es mayor que el total de nodos (" + total + ")");
+        }
+        int[] valores = new int[total];
+        int[] indice = { 0 };
+        llenarInOrden(arbol.getRaiz(), valores, indice);
+        return valores[k - 1];
+    }
+
+    private void llenarInOrden(Nodo nodo, int[] valores, int[] indice) {
+        if (nodo == null) {
+            return;
+        }
+        llenarInOrden(nodo.izquierdo, valores, indice);
+        valores[indice[0]] = nodo.dato;
+        indice[0] = indice[0] + 1;
+        llenarInOrden(nodo.derecho, valores, indice);
+    }
 }
