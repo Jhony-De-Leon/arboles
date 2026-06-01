@@ -106,5 +106,33 @@ public class Principal {
         System.out.println("Despues de eliminar 90:");
         System.out.println("tamanio()     = " + arbol1.tamanio());
         System.out.println("contarNodos() = " + ops1.contarNodos());
+
+        // Problema 2: esBalanceado()
+        System.out.println("\n===== Problema 2: esBalanceado =====");
+        
+        ArbolBinarioBusqueda arbolBalanceado = new ArbolBinarioBusqueda();
+        arbolBalanceado.insertar(50);
+        arbolBalanceado.insertar(30);
+        arbolBalanceado.insertar(70);
+        arbolBalanceado.insertar(20);
+        arbolBalanceado.insertar(40);
+        arbolBalanceado.insertar(60);
+        arbolBalanceado.insertar(80);
+        arbolBalanceado.insertar(10);
+        OperacionesBST opsBalanceado = new OperacionesBST(arbolBalanceado);
+        System.out.println("Arbol balanceado (50,30,70,20,40,60,80,10):");
+        arbolBalanceado.imprimirArbol();
+        System.out.println("esBalanceado() = " + opsBalanceado.esBalanceado());
+        
+        ArbolBinarioBusqueda arbolDesbalanceado = new ArbolBinarioBusqueda();
+        arbolDesbalanceado.insertar(1);
+        arbolDesbalanceado.insertar(2);
+        arbolDesbalanceado.insertar(3);
+        arbolDesbalanceado.insertar(4);
+        arbolDesbalanceado.insertar(5);
+        OperacionesBST opsDesbalanceado = new OperacionesBST(arbolDesbalanceado);
+        System.out.println("Arbol desbalanceado (1,2,3,4,5):");
+        arbolDesbalanceado.imprimirArbol();
+        System.out.println("esBalanceado() = " + opsDesbalanceado.esBalanceado());
     }
 }
