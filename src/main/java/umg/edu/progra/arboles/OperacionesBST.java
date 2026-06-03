@@ -185,4 +185,11 @@ public class OperacionesBST {
         }
         return mayor;
     }
+
+    // Extra 4:
+    public void construirDesdeArreglo(int[] valores) {
+        for (int i = 0; i < valores.length; i++) {
+            arbol.insertar(valores[i]);
+        }
+    }
 }

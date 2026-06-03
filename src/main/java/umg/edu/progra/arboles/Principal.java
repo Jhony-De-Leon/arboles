@@ -286,6 +286,38 @@ public class Principal {
         
         OperacionesBST opsCadena = new OperacionesBST(arbolCadena);
         arbolCadena.imprimirArbol();
-        System.out.println("diametro() = " + opsCadena.diametro()); 
+        System.out.println("diametro() = " + opsCadena.diametro());
+
+        // Extra 4:
+        System.out.println("\n===== Extra 4: BST desde args =====");
+
+        if (args.length == 0) {
+            int[] ejemplo = { 15, 8, 23, 4, 11, 19, 30 };
+            ArbolBinarioBusqueda arbolEjemplo = new ArbolBinarioBusqueda();
+            OperacionesBST opsEjemplo = new OperacionesBST(arbolEjemplo);
+            opsEjemplo.construirDesdeArreglo(ejemplo);
+            arbolEjemplo.imprimirArbol();
+            System.out.print("InOrden: ");
+            arbolEjemplo.inOrden();
+            System.out.println("Tamanio: " + arbolEjemplo.tamanio());
+            System.out.println("Altura:  " + arbolEjemplo.altura());
+
+        } else {
+            int[] valoresArgs = new int[args.length];
+            for (int i = 0; i < args.length; i++) {
+                valoresArgs[i] = Integer.parseInt(args[i]);
+            }
+            
+            ArbolBinarioBusqueda arbolArgs = new ArbolBinarioBusqueda();
+            OperacionesBST opsArgs = new OperacionesBST(arbolArgs);
+            opsArgs.construirDesdeArreglo(valoresArgs);
+            
+            System.out.println("BST construido con los valores recibidos: " + args.length + " elementos");
+            arbolArgs.imprimirArbol();
+            System.out.print("InOrden: ");
+            arbolArgs.inOrden();
+            System.out.println("Tamanio: " + arbolArgs.tamanio());
+            System.out.println("Altura:  " + arbolArgs.altura());
+        }
     }
 }
