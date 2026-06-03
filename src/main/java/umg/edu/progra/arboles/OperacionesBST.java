@@ -161,4 +161,28 @@ public class OperacionesBST {
             imprimirRangoAux(nodo.derecho, min, max);
         }
     }
+
+    // Extra 3:
+    public int diametro() {
+        return diametroAux(arbol.getRaiz());
+    }
+
+    private int diametroAux(Nodo nodo) {
+        if (nodo == null) {
+            return 0;
+        }
+        int alturaIzq = calcularAltura(nodo.izquierdo);
+        int alturaDer = calcularAltura(nodo.derecho);
+        int diametroEnEsteNodo = alturaIzq + alturaDer + 2;
+        int diametroIzq = diametroAux(nodo.izquierdo);
+        int diametroDer = diametroAux(nodo.derecho);
+        int mayor = diametroEnEsteNodo;
+        if (diametroIzq > mayor) {
+            mayor = diametroIzq;
+        }
+        if (diametroDer > mayor) {
+            mayor = diametroDer;
+        }
+        return mayor;
+    }
 }

@@ -260,6 +260,32 @@ public class Principal {
         opsE2.imprimirRangoOrdenado(20, 60);
         opsE2.imprimirRangoOrdenado(10, 80);
         opsE2.imprimirRangoOrdenado(35, 65);
-        opsE2.imprimirRangoOrdenado(50, 50); 
+        opsE2.imprimirRangoOrdenado(50, 50);
+
+        // Extra 3:
+        System.out.println("\n===== Extra 3: diametro =====");
+        ArbolBinarioBusqueda arbolE3 = new ArbolBinarioBusqueda();
+        arbolE3.insertar(50);
+        arbolE3.insertar(30);
+        arbolE3.insertar(70);
+        arbolE3.insertar(20);
+        arbolE3.insertar(40);
+        arbolE3.insertar(60);
+        arbolE3.insertar(80);
+        arbolE3.insertar(10);
+
+        OperacionesBST opsE3 = new OperacionesBST(arbolE3);
+        arbolE3.imprimirArbol();
+        System.out.println("diametro() = " + opsE3.diametro());
+        ArbolBinarioBusqueda arbolCadena = new ArbolBinarioBusqueda();
+        arbolCadena.insertar(1);
+        arbolCadena.insertar(2);
+        arbolCadena.insertar(3);
+        arbolCadena.insertar(4);
+        arbolCadena.insertar(5);
+        
+        OperacionesBST opsCadena = new OperacionesBST(arbolCadena);
+        arbolCadena.imprimirArbol();
+        System.out.println("diametro() = " + opsCadena.diametro()); 
     }
 }
