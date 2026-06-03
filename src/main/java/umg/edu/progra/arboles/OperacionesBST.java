@@ -139,4 +139,26 @@ public class OperacionesBST {
         indice[0] = indice[0] + 1;
         llenarInOrden(nodo.derecho, valores, indice);
     }
+
+    // Extra 2:
+    public void imprimirRangoOrdenado(int min, int max) {
+        System.out.print("Valores en rango [" + min + ", " + max + "]: ");
+        imprimirRangoAux(arbol.getRaiz(), min, max);
+        System.out.println();
+    }
+
+    private void imprimirRangoAux(Nodo nodo, int min, int max) {
+        if (nodo == null) {
+            return;
+        }
+        if (nodo.dato > min) {
+            imprimirRangoAux(nodo.izquierdo, min, max);
+        }
+        if (nodo.dato >= min && nodo.dato <= max) {
+            System.out.print(nodo.dato + " ");
+        }
+        if (nodo.dato < max) {
+            imprimirRangoAux(nodo.derecho, min, max);
+        }
+    }
 }

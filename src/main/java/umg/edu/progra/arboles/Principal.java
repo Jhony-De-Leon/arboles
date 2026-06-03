@@ -239,5 +239,27 @@ public class Principal {
         } catch (IllegalArgumentException e) {
             System.out.println("kEsimoMenor(9) -> excepcion: " + e.getMessage());
         }
+
+        // Extra 2:
+        System.out.println("\n===== Extra 2: imprimirRangoOrdenado =====");
+
+        ArbolBinarioBusqueda arbolE2 = new ArbolBinarioBusqueda();
+        arbolE2.insertar(50);
+        arbolE2.insertar(30);
+        arbolE2.insertar(70);
+        arbolE2.insertar(20);
+        arbolE2.insertar(40);
+        arbolE2.insertar(60);
+        arbolE2.insertar(80);
+        arbolE2.insertar(10);
+
+        OperacionesBST opsE2 = new OperacionesBST(arbolE2);
+        System.out.print("InOrden completo: ");
+        arbolE2.inOrden();
+
+        opsE2.imprimirRangoOrdenado(20, 60);
+        opsE2.imprimirRangoOrdenado(10, 80);
+        opsE2.imprimirRangoOrdenado(35, 65);
+        opsE2.imprimirRangoOrdenado(50, 50); 
     }
 }
